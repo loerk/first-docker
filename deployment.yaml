@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+labels:
+  app: first-docker
+name: app-deployment
+spec:
+replicas: 2
+selector:
+  matchLabels:
+    app: first-docker
+template:
+  metadata:
+    labels:
+      app: first-docker
+  spec:
+    containers:
+      - image: loerk/first-docker
+        name: app-deployment
+        ports:
+          - containerPort: 3000
